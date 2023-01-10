@@ -2,6 +2,8 @@
 
 This project is for learning purposes only.
 
+References: https://www.youtube.com/watch?v=ULJ3UEezisw
+
 Using VSCode.
 
 ## Create Project

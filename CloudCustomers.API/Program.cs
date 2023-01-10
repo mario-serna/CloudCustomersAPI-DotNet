@@ -1,13 +1,15 @@
+using CloudCustomers.API.Config;
 using CloudCustomers.API.Services;
-
-void ConfigureServices(IServiceCollection services)
-{
-    services.AddTransient<IUsersService, UsersService>();
-}
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+void ConfigureServices(IServiceCollection services)
+{
+    services.Configure<UsersApiOptions>(builder.Configuration.GetSection("UsersApiOptions"));
+    services.AddTransient<IUsersService, UsersService>();
+    services.AddHttpClient<IUsersService, UsersService>();
+}
 ConfigureServices(builder.Services);
 
 builder.Services.AddControllers();
